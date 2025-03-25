@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Kart Good Mood Engine 🚀</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body { 
+            font-family: 'Press Start 2P', cursive;
+            text-align: center; 
+            padding: 50px; 
+            background-color: #ffd6e0; /* Pastel pink */
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 24px;
+            color: #ff69b4; /* Pastel hot pink */
+            text-shadow: 2px 2px #ffa07a; /* Peachy shadow */
+        }
+        #message { 
+            font-size: 18px; 
+            margin-top: 20px; 
+            color: #6a5acd; /* Soft pastel purple */
+            text-shadow: 1px 1px #ffb6c1;
+        }
+        button {
+            font-size: 16px;
+            padding: 15px 30px;
+            background-color: #ffb6c1; /* Light pastel pink */
+            border: 3px solid #ff69b4;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            font-family: 'Press Start 2P', cursive;
+            box-shadow: 3px 3px #ff69b4;
+        }
+        button:hover {
+            background-color: #ff69b4; /* Darker pink on hover */
+        }
+        img {
+            width: 250px;
+            margin-top: 20px;
+            image-rendering: pixelated; /* 8-bit effect */
+        }
+        /* Pop-out text */
+        #loveMessage {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 30px;
+            font-weight: bold;
+            color: #ff1493;
+            text-shadow: 2px 2px 5px #ffb6c1;
+            animation: popOut 2s ease-out forwards;
+        }
+        @keyframes popOut {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            color: #ff1493;
+            font-size: 24px;
+            animation: floatUp 3s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Mario Kart Good Mood Engine 🏁</h1>
+    <div id="loveMessage">Ashley loves Andrew ❤️</div>
+    <button onclick="startGoodMoodEngine()">Start Your Race! 🚗💨</button>
+    <p id="message"></p>
+    <img id="mario" src="https://i.imgur.com/o1Q7mA3.png" style="display: none;"> <!-- Peach kissing Mario -->
+
+    <script>
+        function startGoodMoodEngine() {  
+            console.log("🔥 Starting the Mario Kart Good Mood Engine... 🏎️💨");
+
+            // Play Mario Kart Coconut Mall music
+            let music = new Audio("https://vgmsite.com/soundtracks/mario-kart-wii-official-soundtrack/javkgmdd/1-20%20Coconut%20Mall.mp3");
+            music.play();
+
+            // Play Yoshi sound
+            let yoshiSound = new Audio("https://www.myinstants.com/media/sounds/yoshi.mp3");
+            yoshiSound.play();
+
+            // Display a Mario Kart-style encouraging message
+            let messages = [  
+                "Time to boost into a great day! 🍄💨",  
+                "You're the champion of today’s race! 🏆",  
+                "Keep drifting through challenges and take the shortcut to happiness! 🎮",  
+                "Red shells won’t stop you today! Keep going! 🔥"  
+            ];  
+            let message = messages[Math.floor(Math.random() * messages.length)];  
+            document.getElementById("message").textContent = message;
+
+            // Show Peach kissing Mario image
+            document.getElementById("mario").style.display = "block";
+
+            // Simulate a race start boost
+            setTimeout(() => {  
+                document.getElementById("message").textContent += " 🏎️ 3... 2... 1... GO! 💨";  
+            }, 2000);  
+        }  
+
+        // Create floating hearts when the page loads
+        function createHearts() {
+            for (let i = 0; i < 15; i++) {  
+                let heart = document.createElement("div");  
+                heart.className = "heart";  
+                heart.innerHTML = "💖";  
+                heart.style.left = Math.random() * 100 + "vw";  
+                heart.style.top = Math.random() * 100 + "vh";  
+                heart.style.animationDuration = (Math.random() * 2 + 3) + "s";  
+                document.body.appendChild(heart);  
+
+                setTimeout(() => { heart.remove(); }, 3000);  
+            }  
+        }
+        setInterval(createHearts, 1000);  // Keep generating hearts every second
+    </script>
+</body>
+</html>
